@@ -1,0 +1,355 @@
+<demo-radio>
+  <div class="main container">
+    <content-navigation title="Radio" items="{ navigation }" />
+    <!-- =================================================================================== -->
+    <!--                                                                               Types -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Types</h2>
+
+    <!-- ====================================================== -->
+    <!--                                               Standard -->
+    <!--                                               ======== -->
+    <section-header title="Standard">A standard radio.</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code link" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio-group>
+          <su-radio value="1">Radio choice1</su-radio>
+          <su-radio value="2">Radio choice2</su-radio>
+        </su-radio-group>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-radio-group>
+            <su-radio value="1">Radio choice1</su-radio>
+            <su-radio value="2">Radio choice2</su-radio>
+          </su-radio-group>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                                 Slider -->
+    <!--                                                 ====== -->
+    <section-header title="Slider">A radio can be formatted to emphasize the current selection state</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <div class="ui form">
+          <su-radio-group class="grouped fields">
+            <label>Outbound Throughput</label>
+            <div class="field">
+              <su-radio class="slider" value="20">20mbps max</su-radio>
+            </div>
+            <div class="field">
+              <su-radio class="slider" value="10">10mbps max</su-radio>
+            </div>
+            <div class="field">
+              <su-radio class="slider" value="5">5mbps max</su-radio>
+            </div>
+            <div class="field">
+              <su-radio class="slider" value="Unmetered">Unmetered</su-radio>
+            </div>
+          </su-radio-group>
+        </div>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <div class="ui form">
+            <su-radio-group class="grouped fields">
+              <label>Outbound Throughput</label>
+              <div class="field">
+                <su-radio class="slider" value="20">20mbps max</su-radio>
+              </div>
+              <div class="field">
+                <su-radio class="slider" value="10">10mbps max</su-radio>
+              </div>
+              <div class="field">
+                <su-radio class="slider" value="5">5mbps max</su-radio>
+              </div>
+              <div class="field">
+                <su-radio class="slider" value="Unmetered">Unmetered</su-radio>
+              </div>
+            </su-radio-group>
+          </div>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- =================================================================================== -->
+    <!--                                                                               Types -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">States</h2>
+
+    <!-- ====================================================== -->
+    <!--                                              Read-only -->
+    <!--                                              ========= -->
+    <section-header title="Read-only">A radio can be read-only and unable to change states</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio-group>
+          <su-radio class="read-only">
+            Read Only
+          </su-radio>
+        </su-radio-group>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+      <su-radio-group>
+        <su-radio class="read-only">
+          Read Only
+        </su-radio>
+      </su-radio-group>
+    </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                              Checked -->
+    <!--                                              ========= -->
+    <section-header title="Checked">A radio can be checked</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio-group value="true">
+          <su-radio value="true">Active</su-radio>
+          <su-radio value="false">None Active</su-radio>
+        </su-radio-group>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+        <su-radio-group value="true">
+          <su-radio value="true">Active</su-radio>
+          <su-radio value="false">None Active</su-radio>
+        </su-radio-group>
+    </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                              Disabled -->
+    <!--                                              ========= -->
+    <section-header title="Disabled">A radio can be read-only and unable to change states</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio class="disabled">
+          Disabled
+        </su-radio>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+      <su-radio class="disabled">
+        Disabled
+      </su-radio>
+    </code></pre>
+      </div>
+    </section>
+
+    <!-- =================================================================================== -->
+    <!--                                                                            Examples -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Examples</h2>
+
+    <!-- ====================================================== -->
+    <!--                                           Update label -->
+    <!--                                           ============ -->
+    <section-header title="Update label"></section-header>
+
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio label="{ radio_label }" />
+        <div style="margin-top:1em">
+          <button type="button" onclick="{ changeLabel }" class="ui button">Change label</button>
+        </div>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-radio label="{ radio_label }" />
+          <button type="button" onclick="{ changeLabel }" class="ui button">Change label</button>
+            
+          <script>
+            export default {
+              radio_label: 'change',
+
+              changeLabel() {
+                this.radio_label = (this.radio_label === 'change') ? 'changed' : 'change'
+                this.update()
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                        Access elements -->
+    <!--                                        =============== -->
+    <section-header title="Access elements"></section-header>
+    <p>Access to radio with setAttribute</p>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio-group name="radio-group1" onchange="{ onChange }">
+          <su-radio value="1">Radio choice1</su-radio>
+          <su-radio value="2">Radio choice2</su-radio>
+        </su-radio-group>
+
+        <div class="ui message">
+          <div class="header">
+            Checked from refs
+          </div>
+          <p>Radio choice{ $("[name='radio-group1']").getAttribute('value')}</p>
+        </div>
+
+        <button type="button" onclick="{ () => setAttributeValue(1) }" class="ui button">Choice1</button>
+        <button type="button" onclick="{ () => setAttributeValue(2) }" class="ui button">Choice2</button>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-radio-group name="radio-group1" onchange="{ onChange }">
+            <su-radio value="1">Radio choice1</su-radio>
+            <su-radio value="2">Radio choice2</su-radio>
+          </su-radio-group>
+          
+          <div class="ui message">
+            <div class="header">
+              Checked from refs
+            </div>
+            <p>Radio choice{ $([name="radio-group1"]).getAttribute('value')}</p>
+          </div>
+          
+          <button type="button" onclick="{ () => setAttributeValue(1) }" class="ui button">Choice1</button>
+          <button type="button" onclick="{ () => setAttributeValue(2) }" class="ui button">Choice2</button>
+
+          <script>
+            export default {
+              onChange() {
+                this.update()
+              },
+
+              setAttributeValue(value) {
+                this.$("[name='radio-group1']").setAttribute('value', value)
+                this.update()
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+
+    <p>Access to radio with value attribute</p>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-radio-group name="radio-group2" value="{ radio_group_value }" onchange="{ onChange }">
+          <su-radio value="1">Radio choice1</su-radio>
+          <su-radio value="2">Radio choice2</su-radio>
+        </su-radio-group>
+
+        <div class="ui message">
+          <div class="header">
+            Checked from refs
+          </div>
+          <p>Radio choice{ $("[name='radio-group2']").getAttribute('value') }</p>
+        </div>
+
+        <button type="button" onclick="{ () => setValue(1) }" class="ui button">Choice1</button>
+        <button type="button" onclick="{ () => setValue(2) }" class="ui button">Choice2</button>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-radio-group name="radio-group2" value="{ radio_group_value }" onchange="{ onChange }">
+            <su-radio value="1">Radio choice1</su-radio>
+            <su-radio value="2">Radio choice2</su-radio>
+          </su-radio-group>
+          
+          <div class="ui message">
+            <div class="header">
+              Checked from refs
+            </div>
+            <p>Radio choice{ $([name="radio-group2"]).getAttribute('value')}</p>
+          </div>
+          
+          <button type="button" onclick="{ () => setValue(1) }" class="ui button">Choice1</button>
+          <button type="button" onclick="{ () => setValue(2) }" class="ui button">Choice2</button>
+
+          <script>
+            export default {
+              radio_group_value: 1,
+
+              onChange() {
+                this.update()
+              },
+
+              setValue(value) {
+                this.radio_group_value = value
+                this.update()
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    export default {
+      radio_group_value: 1,
+      radio_label: 'change',
+
+      onMounted() {
+        this.navigation = this.extractNavigation(this.root)
+        this.update()
+      },
+
+      onChange() {
+        this.update()
+      },
+
+      setAttributeValue(value) {
+        this.$("[name='radio-group1']").setAttribute('value', value)
+        this.update()
+      },
+
+      setValue(value) {
+        this.radio_group_value = value
+        this.update()
+      },
+
+      changeLabel() {
+        this.radio_label = (this.radio_label === 'change') ? 'changed' : 'change'
+        this.update()
+      }
+    }
+  </script>
+</demo-radio>

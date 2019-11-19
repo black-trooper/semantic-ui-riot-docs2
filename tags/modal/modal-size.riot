@@ -1,0 +1,66 @@
+<modal-size>
+  <section-header title="Size">A modal can vary in size</section-header>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-modal class="mini" name="modal_mini">
+        Mini size modal
+      </su-modal>
+      <su-modal class="tiny" name="modal_tiny">
+        Tiny size modal
+      </su-modal>
+      <su-modal class="small" name="modal_small">
+        Small size modal
+      </su-modal>
+      <su-modal class="large" name="modal_large">
+        Large size modal
+      </su-modal>
+      <button class="ui button" onclick="{ () => showModal('modal_mini') }">Show mini size modal</button>
+      <button class="ui button" onclick="{ () => showModal('modal_tiny') }">Show tiny size modal</button>
+      <button class="ui button" onclick="{ () => showModal('modal_small') }">Show small size modal</button>
+      <button class="ui button" onclick="{ () => showModal('modal_large') }">Show large size modal</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-modal class="mini" name="modal_mini">
+          Mini size modal
+        </su-modal>
+        <su-modal class="tiny" name="modal_tiny">
+          Tiny size modal
+        </su-modal>
+        <su-modal class="small" name="modal_small">
+          Small size modal
+        </su-modal>
+        <su-modal class="large" name="modal_large">
+          Large size modal
+        </su-modal>
+        
+        <button class="ui button" onclick="{ () => showModal('modal_mini') }">Show mini size modal</button>
+        <button class="ui button" onclick="{ () => showModal('modal_tiny') }">Show tiny size modal</button>
+        <button class="ui button" onclick="{ () => showModal('modal_small') }">Show small size modal</button>
+        <button class="ui button" onclick="{ () => showModal('modal_large') }">Show large size modal</button>
+
+        <script>
+          export default {
+            showModal(target) {
+              const selector = `[name="${target}"]`
+              this.obs.trigger(`${this.$(selector).id}-show`)
+            }
+          }
+        </script>
+      </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      showModal(target) {
+        const selector = `[name="${target}"]`
+        this.obs.trigger(`${this.$(selector).id}-show`)
+      }
+    }
+  </script>
+</modal-size>

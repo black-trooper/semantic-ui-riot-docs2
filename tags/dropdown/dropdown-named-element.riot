@@ -1,0 +1,93 @@
+<dropdown-named-element>
+  <p>Access to single selection with setAttribute</p>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-dropdown items="{ dropdownItems }" name="dropdown1"></su-dropdown>
+
+      <div class="ui message">
+        <div class="header">
+          Selected value
+        </div>
+        <p>value: { $('[name="dropdown1"]').getAttribute('value') }</p>
+        <p>label: { $('[name="dropdown1"]').getAttribute('label') }</p>
+        <p>changed: { $('[name="dropdown1"]').getAttribute('changed') }</p>
+      </div>
+
+      <button type="button" onclick="{ () => setAttributeValue(null) }" class="ui button">Select Default</button>
+      <button type="button" onclick="{ () => setAttributeValue(1) }" class="ui button">Select Male</button>
+      <button type="button" onclick="{ () => setAttributeValue(2) }" class="ui button">Select Female</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-dropdown items="{ dropdownItems }" name="dropdown1"></su-dropdown>
+
+        <div class="ui message">
+          <div class="header">
+            Selected value
+          </div>
+          <p>value: { $('[name="dropdown1"]').getAttribute('value') }</p>
+          <p>label: { $('[name="dropdown1"]').getAttribute('label') }</p>
+          <p>changed: { $('[name="dropdown1"]').getAttribute('changed') }</p>
+        </div>
+
+        <button type="button" onclick="{ () => setAttributeValue(null) }" class="ui button">Select Default</button>
+        <button type="button" onclick="{ () => setAttributeValue(1) }" class="ui button">Select Male</button>
+        <button type="button" onclick="{ () => setAttributeValue(2) }" class="ui button">Select Female</button>
+
+        <script>
+          export default {
+            dropdownItems: [
+              {
+                label: 'Gender',
+                value: null,
+                default: true
+              },
+              {
+                label: 'Male',
+                value: 1
+              },
+              {
+                label: 'Female',
+                value: 2
+              }
+            ],
+
+            setAttributeValue(value) {
+              this.$("[name='dropdown1']").setAttribute('value', value)
+              this.update()
+            }
+          }
+        </script>
+      </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      dropdownItems: [
+        {
+          label: 'Gender',
+          value: null,
+          default: true
+        },
+        {
+          label: 'Male',
+          value: 1
+        },
+        {
+          label: 'Female',
+          value: 2
+        }
+      ],
+
+      setAttributeValue(value) {
+        this.$("[name='dropdown1']").setAttribute('value', value)
+        this.update()
+      }
+    }
+  </script>
+</dropdown-named-element>

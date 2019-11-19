@@ -1,0 +1,122 @@
+<demo-dropdown>
+  <div class="main container">
+    <content-navigation title="Dropdown" items="{ navigation }" />
+    <!-- =================================================================================== -->
+    <!--                                                                               Types -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Types</h2>
+
+    <!-- ====================================================== -->
+    <!--                                              Selection -->
+    <!--                                              ========= -->
+    <dropdown-selection></dropdown-selection>
+
+    <!-- ====================================================== -->
+    <!--                                                 Search -->
+    <!--                                                 ====== -->
+    <dropdown-search></dropdown-search>
+
+    <!-- ====================================================== -->
+    <!--                                               Multiple -->
+    <!--                                               ======== -->
+    <dropdown-multiple></dropdown-multiple>
+
+    <!-- =================================================================================== -->
+    <!--                                                                             Content -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Content</h2>
+
+    <!-- ====================================================== -->
+    <!--                                                 Header -->
+    <!--                                                 ====== -->
+    <dropdown-header></dropdown-header>
+
+    <!-- ====================================================== -->
+    <!--                                                Divider -->
+    <!--                                                ======= -->
+    <dropdown-divider></dropdown-divider>
+
+    <!-- ====================================================== -->
+    <!--                                                   Icon -->
+    <!--                                                   ==== -->
+    <dropdown-icon></dropdown-icon>
+
+    <!-- ====================================================== -->
+    <!--                                            Description -->
+    <!--                                            =========== -->
+    <dropdown-description></dropdown-description>
+
+    <!-- ====================================================== -->
+    <!--                                                  Image -->
+    <!--                                                  ===== -->
+    <dropdown-image></dropdown-image>
+
+    <!-- =================================================================================== -->
+    <!--                                                                              States -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">States</h2>
+    <dropdown-states></dropdown-states>
+
+    <!-- =================================================================================== -->
+    <!--                                                                          Variations -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Variations</h2>
+    <dropdown-direction></dropdown-direction>
+
+    <!-- =================================================================================== -->
+    <!--                                                                            Examples -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Examples</h2>
+
+    <!-- ====================================================== -->
+    <!--                                         Named elements -->
+    <!--                                         ============== -->
+    <section-header title="Named elements"></section-header>
+    <dropdown-named-element></dropdown-named-element>
+    <dropdown-named-element-multi></dropdown-named-element-multi>
+
+    <!-- ====================================================== -->
+    <!--                                          Event trigger -->
+    <!--                                          ============= -->
+    <section-header title="Event trigger"></section-header>
+    <dropdown-event-trigger></dropdown-event-trigger>
+  </div>
+
+  <script>
+    import DropdownSelection from './dropdown/dropdown-selection.riot'
+    import DropdownSearch from './dropdown/dropdown-search.riot'
+    import DropdownMultiple from './dropdown/dropdown-multiple.riot'
+    import DropdownHeader from './dropdown/dropdown-header.riot'
+    import DropdownDivider from './dropdown/dropdown-divider.riot'
+    import DropdownIcon from './dropdown/dropdown-icon.riot'
+    import DropdownDescription from './dropdown/dropdown-description.riot'
+    import DropdownImage from './dropdown/dropdown-image.riot'
+    import DropdownStates from './dropdown/dropdown-states.riot'
+    import DropdownDirection from './dropdown/dropdown-direction.riot'
+    import DropdownNamedElement from './dropdown/dropdown-named-element.riot'
+    import DropdownNamedElementMulti from './dropdown/dropdown-named-element-multi.riot'
+    import DropdownEventTrigger from './dropdown/dropdown-event-trigger.riot'
+
+    export default {
+      components: {
+        DropdownSelection,
+        DropdownSearch,
+        DropdownMultiple,
+        DropdownHeader,
+        DropdownDivider,
+        DropdownIcon,
+        DropdownDescription,
+        DropdownImage,
+        DropdownStates,
+        DropdownDirection,
+        DropdownNamedElement,
+        DropdownNamedElementMulti,
+        DropdownEventTrigger,
+      },
+      onMounted() {
+        this.navigation = this.extractNavigation(this.root)
+        this.update()
+      }
+    }
+  </script>
+</demo-dropdown>

@@ -1,0 +1,51 @@
+<tab-active>
+  <section-header title="Active">A menu item can be active.</section-header>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code link" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-tabset class="three column item" active="{ active }">
+        <su-tab label="Home">Home content</su-tab>
+        <su-tab label="Messages">Messages content</su-tab>
+        <su-tab label="Friends">Friends content</su-tab>
+      </su-tabset>
+      <div class="ui divider"></div>
+      <button class="ui button" onclick="{ () => setActive('Home') }">Home</button>
+      <button class="ui button" onclick="{ () => setActive('Messages') }">Messages</button>
+      <button class="ui button" onclick="{ () => setActive('Friends') }">Friends</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-tabset class="three column item" active="{ active }">
+          <su-tab label="Home">Home content</su-tab>
+          <su-tab label="Messages">Messages content</su-tab>
+          <su-tab label="Friends">Friends content</su-tab>
+        </su-tabset>
+
+        <button class="ui button" onclick="{ () => setActive('Home') }">Home</button>
+        <button class="ui button" onclick="{ () => setActive('Messages') }">Messages</button>
+        <button class="ui button" onclick="{ () => setActive('Friends') }">Friends</button>
+
+        <script>
+          this.active = 'Messages'
+          this.setActive = target => {
+            this.active = target
+            this.update()
+          }
+        </script>
+      </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      active: 'Messages',
+      setActive(target) {
+        this.active = target
+        this.update()
+      }
+    }
+  </script>
+</tab-active>

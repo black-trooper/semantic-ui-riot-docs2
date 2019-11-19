@@ -1,0 +1,29 @@
+<content-header class="ui masthead vertical segment">
+  <div>
+    <h1 class="ui header">
+      { pageSubject }
+      <div class="sub header">{ pageDescription }</div>
+    </h1>
+  </div>
+
+  <script>
+    import i18n from '../i18n/locale-en.json'
+
+    export default {
+      onBeforeUpdate(props, state) {
+        if (props.page) {
+          this.pageSubject = subject(props.page)
+          this.pageDescription = description(props.page)
+        }
+      }
+    }
+
+    const subject = url => {
+      return i18n[url].subject
+    }
+
+    const description = url => {
+      return i18n[url].description
+    }
+  </script>
+</content-header>

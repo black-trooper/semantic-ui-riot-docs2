@@ -1,0 +1,174 @@
+<navigation>
+
+  <div class="ui fixed inverted main menu">
+    <div class="ui container">
+      <a class="launch icon item" onclick="{ toggleMenu }">
+        <i class="content icon"></i>
+      </a>
+
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <strong>Semantic UI Riot
+            <small>
+              <small>
+                <em>{ version }</em>
+              </small>
+            </small>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui inverted vertical left fixed menu" if="{ menuVisible || isAlwaysMenuVisible() }">
+    <div class="item">
+      <img src="/images/logo.png" class="ui mini right spaced image">
+      <strong>Semantic UI Riot
+        <small>
+          <small>
+            <em>{ version }</em>
+          </small>
+        </small>
+      </strong>
+    </div>
+
+    <div class="item">
+      <div class="header">Getting Started</div>
+      <div class="menu">
+        <a class="item" href="/">Introduction</a>
+        <a href="https://github.com/black-trooper/semantic-ui-riot" class="item" target="_blank">
+          <i aria-hidden="true" class="github icon"></i>
+          GitHub
+        </a>
+        <a href="https://github.com/black-trooper/semantic-ui-riot/blob/master/CHANGELOG.md" class="item"
+          target="_blank">
+          <i aria-hidden="true" class="file icon"></i>
+          CHANGELOG
+        </a>
+        <a href="/v3" class="item">
+          for Riot v3
+        </a>
+      </div>
+    </div>
+    <router>
+      <div class="item">
+        <div class="header">Modules</div>
+        <div class="menu">
+          <a each="{menu in menus}" class="item { activeContent == kebab(menu) && 'active' }" onclick="{ hideMenu }"
+            href="/module/{ kebab(menu) }">{ menu }</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="header">Addons</div>
+        <div class="menu">
+          <a each="{menu in addons}" class="item { activeContent == kebab(menu) && 'active'}" onclick="{ hideMenu }"
+            href="/addon/{ kebab(menu) }">{ menu }</a>
+        </div>
+      </div>
+    </router>
+  </div>
+
+  <style>
+    /* navigation .fixed.main.menu,
+    [is="navigation"] .fixed.main.menu {
+      z-index: 102;
+    }
+
+    @media only screen and (min-width: 1145px) {
+
+      navigation .fixed.main.menu,
+      [is="navigation"] .fixed.main.menu {
+        display: none;
+      }
+
+      navigation .fixed.left.menu,
+      [is="navigation"] .fixed.left.menu {
+        display: block;
+      }
+    } */
+
+    .fixed.main.menu {
+      z-index: 102;
+    }
+
+    @media only screen and (min-width: 1145px) {
+      .fixed.main.menu {
+        display: none;
+      }
+
+      .fixed.left.menu {
+        display: block;
+      }
+    }
+  </style>
+
+  <script>
+    let timer = 0
+    let tag
+
+    export default {
+      menuVisible: false,
+      activeContent: '',
+      version: require('../package.json').dependencies['semantic-ui-riot'],
+
+      menus: [
+        'Accordion',
+        'Checkbox',
+        'Dropdown',
+        'Modal',
+        'Popup',
+        'Progress',
+        'Rating',
+        'Tab',
+      ],
+
+      addons: [
+        'Alert',
+        'Confirm',
+        'Datepicker',
+        'Pagination',
+        'Radio',
+        'Table',
+        'Toast',
+        'Validation Error',
+      ],
+
+      onMounted() {
+        tag = this
+        window.addEventListener('resize', function () {
+          if (timer > 0) {
+            clearTimeout(timer)
+          }
+
+          timer = setTimeout(function () {
+            tag.update()
+          }, 200)
+        })
+        this.obs.on('routing', content => {
+          this.activeContent = content
+          this.update()
+        })
+      },
+
+      isAlwaysMenuVisible() {
+        return parseInt(window.innerWidth) > 1145
+      },
+
+      toggleMenu() {
+        this.menuVisible = !this.menuVisible
+        this.update()
+      },
+
+      hideMenu() {
+        this.menuVisible = false
+        this.update()
+      },
+
+      kebab(target) {
+        return target.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase()
+      }
+    }
+
+  </script>
+</navigation>

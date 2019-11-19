@@ -1,0 +1,112 @@
+<dropdown-named-element-multi>
+  <p>Access to multi selection with ref attribute</p>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-dropdown items="{ dropdownItems }" name="dropdown1" multiple="true">
+      </su-dropdown>
+
+      <div class="ui message">
+        <div class="header">
+          Selected value
+        </div>
+        <p>value: { $('[name="dropdown1"]').getAttribute('value') }</p>
+        <p>label: { $('[name="dropdown1"]').getAttribute('label') }</p>
+        <p>changed: { $('[name="dropdown1"]').getAttribute('changed') }</p>
+      </div>
+
+      <button type="button" onclick="{ () => setAttributeValue(null) }" class="ui button">Select Default</button>
+      <button type="button" onclick="{ () => setAttributeValue(['angular', 'css']) }" class="ui button">Select Angular
+        &amp; CSS</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-dropdown items="{ dropdownItems }" name="dropdown1" multiple="true"></su-dropdown>
+  
+        <div class="ui message">
+          <div class="header">
+            Selected value
+          </div>
+          <p>value: { refs.dropdown1.value }</p>
+          <p>changed: { refs.dropdown1.changed() }</p>
+        </div>
+  
+        <button type="button" onclick="{ () => setAttributeValue(null) }" class="ui button">Select Default</button>
+        <button type="button" onclick="{ () => setAttributeValue(['angular', 'css']) }" class="ui button">Select Angular &amp; CSS</button>
+  
+        <script>
+          export default {
+            dropdownItems: [
+              {
+                label: 'Skills',
+                value: null,
+                default: true
+              },
+              { value: 'angular', label: 'Angular' },
+              { value: 'css', label: 'CSS' },
+              { value: 'design', label: 'Graphic Design' },
+              { value: 'ember', label: 'Ember' },
+              { value: 'html', label: 'HTML' },
+              { value: 'ia', label: 'Information Architecture' },
+              { value: 'javascript', label: 'Javascript' },
+              { value: 'mech', label: 'Mechanical Engineering' },
+              { value: 'meteor', label: 'Meteor' },
+              { value: 'node', label: 'NodeJS' },
+              { value: 'plumbing', label: 'Plumbing' },
+              { value: 'python', label: 'Python' },
+              { value: 'rails', label: 'Rails' },
+              { value: 'react', label: 'React' },
+              { value: 'repair', label: 'Kitchen Repair' },
+              { value: 'ruby', label: 'Ruby' },
+              { value: 'ui', label: 'UI Design' },
+              { value: 'ux', label: 'User Experience' }
+            ],
+
+            setAttributeValue(value) {
+              this.$("[name='dropdown1']").setAttribute('value', value)
+              this.update()
+            }
+          }
+        </script>
+      </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      dropdownItems: [
+        {
+          label: 'Skills',
+          value: null,
+          default: true
+        },
+        { value: 'angular', label: 'Angular' },
+        { value: 'css', label: 'CSS' },
+        { value: 'design', label: 'Graphic Design' },
+        { value: 'ember', label: 'Ember' },
+        { value: 'html', label: 'HTML' },
+        { value: 'ia', label: 'Information Architecture' },
+        { value: 'javascript', label: 'Javascript' },
+        { value: 'mech', label: 'Mechanical Engineering' },
+        { value: 'meteor', label: 'Meteor' },
+        { value: 'node', label: 'NodeJS' },
+        { value: 'plumbing', label: 'Plumbing' },
+        { value: 'python', label: 'Python' },
+        { value: 'rails', label: 'Rails' },
+        { value: 'react', label: 'React' },
+        { value: 'repair', label: 'Kitchen Repair' },
+        { value: 'ruby', label: 'Ruby' },
+        { value: 'ui', label: 'UI Design' },
+        { value: 'ux', label: 'User Experience' }
+      ],
+
+      setAttributeValue(value) {
+        this.$("[name='dropdown1']").setAttribute('value', value)
+        this.update()
+      }
+    }
+  </script>
+</dropdown-named-element-multi>

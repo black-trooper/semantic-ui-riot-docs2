@@ -1,0 +1,173 @@
+<app>
+    <su-alert></su-alert>
+    <su-confirm></su-confirm>
+    <su-toast></su-toast>
+    <content-header page="{ state.page }"></content-header>
+    <router>
+        <route path="/">
+            <introduction></introduction>
+        </route>
+
+        <!-- module -->
+        <route path="/module/accordion">
+            <demo-accordion></demo-accordion>
+        </route>
+        <route path="/module/accordion#:section">
+            <demo-accordion></demo-accordion>
+        </route>
+        <route path="/module/checkbox">
+            <demo-checkbox></demo-checkbox>
+        </route>
+        <route path="/module/checkbox#:section">
+            <demo-checkbox></demo-checkbox>
+        </route>
+        <route path="/module/dropdown">
+            <demo-dropdown></demo-dropdown>
+        </route>
+        <route path="/module/dropdown#:section">
+            <demo-dropdown></demo-dropdown>
+        </route>
+        <route path="/module/modal">
+            <demo-modal></demo-modal>
+        </route>
+        <route path="/module/modal#:section">
+            <demo-modal></demo-modal>
+        </route>
+        <route path="/module/popup">
+            <demo-popup></demo-popup>
+        </route>
+        <route path="/module/popup#:section">
+            <demo-popup></demo-popup>
+        </route>
+        <route path="/module/progress">
+            <demo-progress></demo-progress>
+        </route>
+        <route path="/module/progress#:section">
+            <demo-progress></demo-progress>
+        </route>
+        <route path="/module/rating">
+            <demo-rating></demo-rating>
+        </route>
+        <route path="/module/rating#:section">
+            <demo-rating></demo-rating>
+        </route>
+        <route path="/module/tab">
+            <demo-tab></demo-tab>
+        </route>
+        <route path="/module/tab#:section">
+            <demo-tab></demo-tab>
+        </route>
+
+        <!-- addon -->
+        <route path="/addon/alert">
+            <demo-alert></demo-alert>
+        </route>
+        <route path="/addon/alert#:section">
+            <demo-alert></demo-alert>
+        </route>
+        <route path="/addon/confirm">
+            <demo-confirm></demo-confirm>
+        </route>
+        <route path="/addon/confirm#:section">
+            <demo-confirm></demo-confirm>
+        </route>
+        <route path="/addon/datepicker">
+            <demo-datepicker></demo-datepicker>
+        </route>
+        <route path="/addon/datepicker#:section">
+            <demo-datepicker></demo-datepicker>
+        </route>
+        <route path="/addon/pagination">
+            <demo-pagination></demo-pagination>
+        </route>
+        <route path="/addon/pagination#:section">
+            <demo-pagination></demo-pagination>
+        </route>
+        <route path="/addon/radio">
+            <demo-radio></demo-radio>
+        </route>
+        <route path="/addon/radio#:section">
+            <demo-radio></demo-radio>
+        </route>
+        <route path="/addon/table">
+            <demo-table></demo-table>
+        </route>
+        <route path="/addon/table#:section">
+            <demo-table></demo-table>
+        </route>
+        <route path="/addon/toast">
+            <demo-toast></demo-toast>
+        </route>
+        <route path="/addon/toast#:section">
+            <demo-toast></demo-toast>
+        </route>
+        <route path="/addon/validation-error">
+            <demo-validation-error></demo-validation-error>
+        </route>
+        <route path="/addon/validation-error#:section">
+            <demo-validation-error></demo-validation-error>
+        </route>
+
+        <navigation></navigation>
+    </router>
+
+    <script>
+        import { Router, Route, router } from '@riotjs/route'
+        import Introduction from './introduction.riot'
+        import Navigation from './navigation.riot'
+        import DemoAccordion from './demo-accordion.riot'
+        import DemoAlert from './demo-alert.riot'
+        import DemoCheckbox from './demo-checkbox.riot'
+        import DemoConfirm from './demo-confirm.riot'
+        import DemoDatepicker from './demo-datepicker.riot'
+        import DemoDropdown from './demo-dropdown.riot'
+        import DemoModal from './demo-modal.riot'
+        import DemoPagination from './demo-pagination.riot'
+        import DemoPopup from './demo-popup.riot'
+        import DemoProgress from './demo-progress.riot'
+        import DemoRadio from './demo-radio.riot'
+        import DemoRating from './demo-rating.riot'
+        import DemoTab from './demo-tab.riot'
+        import DemoTable from './demo-table.riot'
+        import DemoToast from './demo-toast.riot'
+        import DemoValidationError from './demo-validation-error.riot'
+
+        export default {
+            components: {
+                Router,
+                Route,
+                Introduction,
+                Navigation,
+                DemoAccordion,
+                DemoAlert,
+                DemoCheckbox,
+                DemoConfirm,
+                DemoDatepicker,
+                DemoDropdown,
+                DemoModal,
+                DemoPagination,
+                DemoPopup,
+                DemoProgress,
+                DemoRadio,
+                DemoRating,
+                DemoTab,
+                DemoTable,
+                DemoToast,
+                DemoValidationError,
+            },
+            onMounted(props, state) {
+                router.on.value(path => {
+                    if (path == '/v3') {
+                        location.href = '/v3'
+                        return
+                    }
+                    window.scroll(0, 0);
+                    const regex = RegExp('/.*\/([^\/\?]*)');
+                    const url = regex.test(path) ? regex.exec(path)[1].split('#')[0] : 'root'
+                    this.update({ page: url })
+                    this.obs.trigger('routing', url)
+                })
+            }
+        }
+    </script>
+</app>

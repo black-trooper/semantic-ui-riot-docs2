@@ -1,0 +1,10 @@
+<child>
+  <slot />
+  <script>
+    export default {
+      onMounted() {
+        this.suToast(`Lazy mount: ${this.root.innerText} component is mounted.`)
+      }
+    }
+  </script>
+</child>

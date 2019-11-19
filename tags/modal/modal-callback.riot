@@ -1,0 +1,136 @@
+<modal-callback>
+  <section-header title="Callback"></section-header>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-modal modal="{ modal }" onTextAccess="{onTextAccess}" onclick-action="{ onClickAction }"
+        onclick_close="{onConfirmClose}" onshow="{onshow}" onhide="{onhide}">
+      </su-modal>
+      <div class="ui message" if="{ callbackMessage.length > 0 }">
+        <ul>
+          <li each="{ item in callbackMessage }">{ item }</li>
+        </ul>
+      </div>
+      <button class="ui button" onclick="{ showModal }">Show modal</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-modal modal="{ modal }" onTextAccess="{onTextAccess}" onclick-action="{ onClickAction }"
+          onclick_close="{onConfirmClose}" onshow="{onshow}" onhide="{onhide}">
+        </su-modal>
+        <div class="ui message" if="{ callbackMessage.length > 0 }">
+          <ul>
+            <li each="{ item in callbackMessage }">{ item }</li>
+          </ul>
+        </div>
+        <button class="ui button" onclick="{ showModal }">Show modal</button>
+
+        <script>
+          export default {
+            modal: {
+              header: 'Button actions',
+              buttons: [{
+                text: 'Text access'
+              }, {
+                text: 'Action access',
+                action: 'click-action'
+              }, {
+                text: 'Confirm close',
+                closable: false,
+              }]
+            },
+
+            callbackMessage: [],
+
+            showModal() {
+              this.obs.trigger(`${this.$('su-modal').id}-show`)
+            },
+
+            // trigger by buttons[n].text
+            onTextAccess() {
+              this.callbackMessage.push('Text access button is clicked.')
+              this.update()
+            },
+
+            // trigger by buttons[n].action
+            onClickAction() {
+              this.callbackMessage.push('Action access button is clicked.')
+              this.update()
+            },
+            onConfirmClose() {
+              if (confirm('Are you ok ?')) {
+                this.callbackMessage.push('Confirm close button is clicked and confirm ok.')
+                this.update()
+                this.obs.trigger(`${this.$('su-modal').id}-hide`)
+              }
+            },
+
+            onshow() {
+              this.callbackMessage.push('Modal show')
+              this.update()
+            },
+            onhide() {
+              this.callbackMessage.push('Modal hide')
+              this.update()
+            },
+          }
+        </script>
+      </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      modal: {
+        header: 'Button actions',
+        buttons: [{
+          text: 'Text access'
+        }, {
+          text: 'Action access',
+          action: 'click-action'
+        }, {
+          text: 'Confirm close',
+          action: 'click_close',
+          closable: false,
+        }]
+      },
+
+      callbackMessage: [],
+
+      showModal() {
+        this.obs.trigger(`${this.$('su-modal').id}-show`)
+      },
+
+      // trigger by buttons[n].text
+      onTextAccess() {
+        this.callbackMessage.push('Text access button is clicked.')
+        this.update()
+      },
+
+      // trigger by buttons[n].action
+      onClickAction() {
+        this.callbackMessage.push('Action access button is clicked.')
+        this.update()
+      },
+      onConfirmClose() {
+        if (confirm('Are you ok ?')) {
+          this.callbackMessage.push('Confirm close button is clicked and confirm ok.')
+          this.update()
+          this.obs.trigger(`${this.$('su-modal').id}-hide`)
+        }
+      },
+
+      onshow() {
+        this.callbackMessage.push('Modal show')
+        this.update()
+      },
+      onhide() {
+        this.callbackMessage.push('Modal hide')
+        this.update()
+      },
+    }
+  </script>
+</modal-callback>

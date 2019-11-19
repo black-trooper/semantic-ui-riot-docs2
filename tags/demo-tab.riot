@@ -1,0 +1,114 @@
+<demo-tab>
+  <div class="main container">
+    <content-navigation title="Tab" items="{ navigation }" />
+
+    <!-- =================================================================================== -->
+    <!--                                                                               Types -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Types</h2>
+
+    <!-- ====================================================== -->
+    <!--                                                  Basic -->
+    <!--                                                  ===== -->
+    <tab-basic></tab-basic>
+
+    <!-- ====================================================== -->
+    <!--                                         Secondary Menu -->
+    <!--                                         ============== -->
+    <tab-secondary></tab-secondary>
+
+    <!-- ====================================================== -->
+    <!--                                               Pointing -->
+    <!--                                               ======== -->
+    <tab-pointing></tab-pointing>
+
+    <!-- ====================================================== -->
+    <!--                                               Attached -->
+    <!--                                               ======== -->
+    <tab-attached></tab-attached>
+
+    <!-- ====================================================== -->
+    <!--                                                Tabular -->
+    <!--                                                ======= -->
+    <tab-tabular></tab-tabular>
+
+    <!-- =================================================================================== -->
+    <!--                                                                              States -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">States</h2>
+
+    <!-- ====================================================== -->
+    <!--                                                 Active -->
+    <!--                                                 ====== -->
+    <tab-active></tab-active>
+
+    <!-- ====================================================== -->
+    <!--                                             Lazy mount -->
+    <!--                                             ========== -->
+    <tab-lazymount></tab-lazymount>
+
+    <!-- =================================================================================== -->
+    <!--                                                                          Variations -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Variations</h2>
+
+    <!-- ====================================================== -->
+    <!--                                             No segment -->
+    <!--                                             ========== -->
+    <tab-no-segment></tab-no-segment>
+
+    <!-- ====================================================== -->
+    <!--                                               Inverted -->
+    <!--                                               ======== -->
+    <tab-inverted></tab-inverted>
+
+    <!-- ====================================================== -->
+    <!--                                                Colored -->
+    <!--                                                ======= -->
+    <tab-colored></tab-colored>
+
+    <!-- =================================================================================== -->
+    <!--                                                                            Examples -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Examples</h2>
+
+    <!-- ====================================================== -->
+    <!--                                    Multiple Tab Groups -->
+    <!--                                    =================== -->
+    <tab-multiple></tab-multiple>
+  </div>
+  <script>
+    import TabBasic from './tab/tab-basic.riot'
+    import TabSecondary from './tab/tab-secondary.riot'
+    import TabPointing from './tab/tab-pointing.riot'
+    import TabAttached from './tab/tab-attached.riot'
+    import TabTabular from './tab/tab-tabular.riot'
+    import TabActive from './tab/tab-active.riot'
+    import TabNoSegment from './tab/tab-no-segment.riot'
+    import TabInverted from './tab/tab-inverted.riot'
+    import TabColored from './tab/tab-colored.riot'
+    import TabMultiple from './tab/tab-multiple.riot'
+    import TabLazymount from './tab/tab-lazymount.riot'
+
+    export default {
+      components: {
+        TabBasic,
+        TabSecondary,
+        TabPointing,
+        TabAttached,
+        TabTabular,
+        TabActive,
+        TabNoSegment,
+        TabInverted,
+        TabColored,
+        TabMultiple,
+        TabLazymount,
+      },
+
+      onMounted() {
+        this.navigation = this.extractNavigation(this.root)
+        this.update()
+      }
+    }
+  </script>
+</demo-tab>

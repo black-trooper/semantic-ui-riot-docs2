@@ -1,0 +1,69 @@
+<modal-not-closable>
+  <section-header title="Not closable">Clicking on the dimmer does not close modal</section-header>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-modal modal="{ modal }">
+        And not closable button
+      </su-modal>
+      <button class="ui button" onclick="{ showModal }">Show modal</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-modal modal="{ modal }">
+          And not closable button
+        </su-modal>
+        <button class="ui button" onclick="{ showModal }">Show modal</button>
+
+        <script>
+          export default {
+            modal: {
+              header: 'Clicking on the dimmer does not close modal',
+              closable: false,
+              buttons: [{
+                text: 'Not closable',
+                type: 'red',
+                closable: false,
+              }, {
+                text: 'Closable',
+              }, {
+                text: 'Disabled',
+                disabled: true
+              }]
+            },
+
+            showModal() {
+              this.obs.trigger(`${this.$('su-modal').id}-show`)
+            }
+          }
+        </script>
+      </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      modal: {
+        header: 'Clicking on the dimmer does not close modal',
+        closable: false,
+        buttons: [{
+          text: 'Not closable',
+          type: 'red',
+          closable: false,
+        }, {
+          text: 'Closable',
+        }, {
+          text: 'Disabled',
+          disabled: true
+        }]
+      },
+
+      showModal() {
+        this.obs.trigger(`${this.$('su-modal').id}-show`)
+      }
+    }
+  </script>
+</modal-not-closable>

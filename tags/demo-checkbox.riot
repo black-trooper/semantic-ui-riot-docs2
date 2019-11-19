@@ -1,0 +1,444 @@
+<demo-checkbox>
+  <div class="main container">
+    <content-navigation title="Checkbox" items="{ navigation }" />
+
+    <!-- =================================================================================== -->
+    <!--                                                                               Types -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Types</h2>
+
+    <!-- ====================================================== -->
+    <!--                                               Standard -->
+    <!--                                               ======== -->
+    <section-header title="Standard">A standard checkbox</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox>
+          Make my profile visible
+        </su-checkbox>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox>
+            Make my profile visible
+          </su-checkbox>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                                 Slider -->
+    <!--                                                 ====== -->
+    <section-header title="Slider">A checkbox can be formatted to emphasize the current selection state</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox class="slider">
+          Accept terms and conditions
+        </su-checkbox>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox class="slider">
+            Accept terms and conditions
+          </su-checkbox>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                                 Toggle -->
+    <!--                                                 ====== -->
+    <section-header title="Toggle">A checkbox can be formatted to show an on or off choice</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox class="toggle">
+          Subscribe to weekly newsletter
+        </su-checkbox>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox class="toggle">
+            Subscribe to weekly newsletter
+          </su-checkbox>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- =================================================================================== -->
+    <!--                                                                              States -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">States</h2>
+
+    <!-- ====================================================== -->
+    <!--                                              Read-only -->
+    <!--                                              ========= -->
+    <section-header title="Read-only">A checkbox can be read-only and unable to change states</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox class="read-only">
+          Read Only
+        </su-checkbox>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox class="read-only" checked="true">
+            Read Only
+          </su-checkbox>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                              Checked -->
+    <!--                                              ========= -->
+    <section-header title="Checked">A checkbox can be checked</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox checked="true">
+          Active
+        </su-checkbox>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox checked="true">
+            Active
+          </su-checkbox>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                               Disabled -->
+    <!--                                               ======== -->
+    <section-header title="Disabled">A checkbox can be read-only and unable to change states</section-header>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox class="disabled">
+          Disabled
+        </su-checkbox>
+      </div>
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox class="disabled">
+            Disabled
+          </su-checkbox>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- =================================================================================== -->
+    <!--                                                                            Examples -->
+    <!-- =================================================================================== -->
+    <h2 class="ui dividing header">Examples</h2>
+
+    <!-- ====================================================== -->
+    <!--                                           Update label -->
+    <!--                                           ============ -->
+    <section-header title="Update label"></section-header>
+
+    <p>Change label</p>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox label="{ checkbox_label }" />
+        <div style="margin-top:1em">
+          <button type="button" onclick="{ changeCheckboxLabel }" class="ui button">Change label</button>
+        </div>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox label="{ checkbox_label }" />
+          <button type="button" onclick="{ changeCheckboxLabel }" class="ui button">Change label</button>
+          
+          <script>
+            this.checkbox_label = 'change'
+            this.changeCheckboxLabel = () => {
+              this.checkbox_label = (this.checkbox_label === 'change') ? 'changed' : 'change'
+              this.update()
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                        Access elements -->
+    <!--                                        =============== -->
+    <section-header title="Access elements"></section-header>
+
+    <p>Access to checkbox with setAttribute</p>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox name="checkbox1" onchange="{ onChange }">
+          Make my profile visible
+        </su-checkbox>
+
+        <div class="ui message">
+          <p>{ $("[name='checkbox1']").checked ? 'on' : 'off' }</p>
+        </div>
+
+        <button type="button" onclick="{ () => setAttributeValue(true) }" class="ui button">Check on</button>
+        <button type="button" onclick="{ () => setAttributeValue(false) }" class="ui button">Check off</button>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox name="checkbox1" onchange="{ onChange }">
+            Make my profile visible
+          </su-checkbox>
+          
+          <div class="ui message">
+            <p>{ $("[name='checkbox1']").checked ? 'on' : 'off' }</p>
+          </div>
+          
+          <button type="button" onclick="{ () => setAttributeValue(true) }" class="ui button">Check on</button>
+          <button type="button" onclick="{ () => setAttributeValue(false) }" class="ui button">Check off</button>
+          
+          <script>
+            export default {
+              onChange() {
+                this.update()
+              },
+              setAttributeValue = value => {
+                this.$("[name='checkbox1']").checked = value
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox-group name="checkbox-group" onchange="{ onChange }">
+          <su-checkbox value="1">Checkbox choice1</su-checkbox>
+          <su-checkbox value="2">Checkbox choice2</su-checkbox>
+        </su-checkbox-group>
+
+        <div class="ui message">
+          <p>Checkbox choice{ $("[name='checkbox-group']").getAttribute('value') }</p>
+        </div>
+
+        <button type="button" onclick="{ () => setCheckboxGroupAttributeValue(1) }" class="ui button">Choice1</button>
+        <button type="button" onclick="{ () => setCheckboxGroupAttributeValue([2]) }" class="ui button">Choice2</button>
+        <button type="button" onclick="{ () => setCheckboxGroupAttributeValue('1, 2') }"
+          class="ui button">Choice1,2</button>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox-group name="checkbox-group" onchange="{ onChange }">
+            <su-checkbox value="1">Checkbox choice1</su-checkbox>
+            <su-checkbox value="2">Checkbox choice2</su-checkbox>
+          </su-checkbox-group>
+      
+          <div class="ui message">
+            <p>Checkbox choice{ $("[name='checkbox-group']").getAttribute('value') }</p>
+          </div>
+      
+          <button type="button" onclick="{ () => setCheckboxGroupAttributeValue(1) }" class="ui button">Choice1</button>
+          <button type="button" onclick="{ () => setCheckboxGroupAttributeValue([2]) }" class="ui button">Choice2</button>
+          <button type="button" onclick="{ () => setCheckboxGroupAttributeValue('1, 2') }" class="ui button">Choice1,2</button>
+
+          <script>
+            export default {
+              onChange() {
+                this.update()
+              },
+              setCheckboxGroupAttributeValue(value) {
+                this.$("[name='checkbox-group']").setAttribute('value', value)
+                this.update()
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--                                      Checked attribute -->
+    <!--                                      ================= -->
+    <p>Access to checkbox with checked attribute</p>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox name="checkbox2" checked="{ checked }" onchange="{ onChange2 }">
+          Make my profile visible
+        </su-checkbox>
+
+        <div class="ui message">
+          <div class="header">
+            Checked from refs
+          </div>
+          <p>{ $("[name='checkbox2']").checked ? 'on' : 'off' }</p>
+        </div>
+
+        <button type="button" onclick="{ () => setCheckboxValue(true) }" class="ui button">Check on</button>
+        <button type="button" onclick="{ () => setCheckboxValue(false) }" class="ui button">Check off</button>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox name="checkbox" checked="{ checked }" onchange="{ onChange }">
+            Make my profile visible
+          </su-checkbox>
+
+          <div class="ui message">
+            <div class="header">
+              Checked
+            </div>
+            <p>{ $("[name='checkbox']").checked ? 'on' : 'off' }</p>
+          </div>
+
+          <button type="button" onclick="{ () => setCheckboxValue(true) }" class="ui button">Check on</button>
+          <button type="button" onclick="{ () => setCheckboxValue(false) }" class="ui button">Check off</button>
+
+          <script>
+            export default {
+              onChange(target) {
+                this.setCheckboxValue(target.target.checked)
+              },
+              setCheckboxValue = value => {
+                this.checked = value
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+
+    <p>Access to checkbox with value attribute</p>
+    <section>
+      <div class="ui segment secondary top attached example">
+        Example
+        <i class="icon code" onclick="{ toggleExample }"></i>
+      </div>
+      <div class="ui segment bottom attached">
+        <su-checkbox-group name="checkbox-group2" value="{ checkboxGroupValue }" onchange="{ onChange }">
+          <su-checkbox value="1">Checkbox choice1</su-checkbox>
+          <su-checkbox value="2">Checkbox choice2</su-checkbox>
+        </su-checkbox-group>
+
+        <div class="ui message">
+          <p>Checkbox choice{ $("[name='checkbox-group2']").getAttribute('value') }</p>
+        </div>
+
+        <button type="button" onclick="{ () => setCheckboxGroupValue(1) }" class="ui button">Choice1</button>
+        <button type="button" onclick="{ () => setCheckboxGroupValue([2]) }" class="ui button">Choice2</button>
+        <button type="button" onclick="{ () => setCheckboxGroupValue('1, 2') }" class="ui button">Choice1,2</button>
+      </div>
+
+      <div class="ui segment bottom attached inverted transition hidden">
+        <pre class="language-markup"><code>
+          <su-checkbox-group name="checkbox-group" value="{ checkboxGroupValue }" onchange="{ onChange }">
+            <su-checkbox value="1">Checkbox choice1</su-checkbox>
+            <su-checkbox value="2">Checkbox choice2</su-checkbox>
+          </su-checkbox-group>
+
+          <div class="ui message">
+            <p>Checkbox choice{ $("[name='checkbox-group']").getAttribute('value') }</p>
+          </div>
+
+          <button type="button" onclick="{ () => setCheckboxGroupValue(1) }" class="ui button">Choice1</button>
+          <button type="button" onclick="{ () => setCheckboxGroupValue([2]) }" class="ui button">Choice2</button>
+          <button type="button" onclick="{ () => setCheckboxGroupValue('1, 2') }" class="ui button">Choice1,2</button>
+
+          <script>
+            export default {
+              onChange() {
+                this.update()
+              },
+              setCheckboxGroupValue = value => {
+                this.checkboxGroupValue = value
+                this.update()
+              }
+            }
+          </script>
+        </code></pre>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    export default {
+      onMounted() {
+        this.navigation = this.extractNavigation(this.root)
+        console.log(this.navigation)
+        this.update()
+      },
+
+      onChange() {
+        this.update()
+      },
+
+      onChange2(target) {
+        this.setCheckboxValue(target.target.checked)
+      },
+
+      setAttributeValue(value) {
+        this.$("[name='checkbox1']").setAttribute('checked', value)
+        this.update()
+      },
+
+      setCheckboxGroupAttributeValue(value) {
+        this.$("[name='checkbox-group']").setAttribute('value', value)
+        this.update()
+      },
+
+      setCheckboxValue(value) {
+        this.checked = value
+        this.update()
+      },
+
+      setCheckboxGroupValue(value) {
+        this.checkboxGroupValue = value
+        this.update()
+      },
+
+      checkbox_label: 'change',
+      changeCheckboxLabel() {
+        this.checkbox_label = (this.checkbox_label === 'change') ? 'changed' : 'change'
+        this.update()
+      },
+    }
+  </script>
+</demo-checkbox>

@@ -1,0 +1,63 @@
+<modal-default-button>
+  <section-header title="Default button">A modal can set default button</section-header>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-modal modal="{ modal }">
+        Default button modal
+      </su-modal>
+      <button class="ui button" onclick="{ showModal }">Show default button modal</button>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+          <su-modal modal="{ modal }">
+            Default button modal
+          </su-modal>
+          <button class="ui button" onclick="{ showModal }">Show default button modal</button>
+  
+          <script>
+            export default {
+              modal: {
+                header: 'Default button',
+                buttons: [{
+                  text: 'Ok',
+                  type: 'primary',
+                  default: true,
+                  icon: 'checkmark'
+                }, {
+                  text: 'Cancel'
+                }]
+              },
+
+              showModal() {
+                this.obs.trigger(`${this.$('su-modal').id}-show`)
+              }
+            }
+          </script>
+        </code></pre>
+    </div>
+  </section>
+
+  <script>
+    export default {
+      modal: {
+        header: 'Default button',
+        buttons: [{
+          text: 'Ok',
+          type: 'primary',
+          default: true,
+          icon: 'checkmark'
+        }, {
+          text: 'Cancel'
+        }]
+      },
+
+      showModal() {
+        this.obs.trigger(`${this.$('su-modal').id}-show`)
+      }
+    }
+  </script>
+</modal-default-button>

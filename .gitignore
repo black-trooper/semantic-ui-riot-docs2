@@ -1,0 +1,4 @@
+node_modules/
+src/*hot-update.*
+src/semantic-ui-riot.js
+.firebase/

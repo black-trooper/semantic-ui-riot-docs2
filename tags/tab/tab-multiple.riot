@@ -1,0 +1,63 @@
+<tab-multiple>
+  <section-header title="Multiple Tab Groups">There are a several of ways to include independent tab groups on the same
+    page, even with history. One of the easiest ways
+    is provide a specific parent context for each tab group.</section-header>
+  <section>
+    <div class="ui segment secondary top attached example">
+      Example
+      <i class="icon code link" onclick="{ toggleExample }"></i>
+    </div>
+    <div class="ui segment bottom attached">
+      <su-tabset class="secondary">
+        <su-tab label="First">
+          <su-tabset class="top tabular">
+            <su-tab label="1A">1A</su-tab>
+            <su-tab label="1B" active="true">1B</su-tab>
+            <su-tab label="1C">1C</su-tab>
+          </su-tabset>
+        </su-tab>
+        <su-tab label="Second">
+          <su-tabset class="top tabular">
+            <su-tab label="2A">2A</su-tab>
+            <su-tab label="2B">2B</su-tab>
+            <su-tab label="2C">2C</su-tab>
+          </su-tabset>
+        </su-tab>
+        <su-tab label="Third">
+          <su-tabset class="top tabular">
+            <su-tab label="3A">3A</su-tab>
+            <su-tab label="3B">3B</su-tab>
+            <su-tab label="3C">3C</su-tab>
+          </su-tabset>
+        </su-tab>
+      </su-tabset>
+    </div>
+    <div class="ui segment bottom attached inverted transition hidden">
+      <pre class="language-markup"><code>
+        <su-tabset class="secondary">
+          <su-tab label="First">
+            <su-tabset class="top tabular">
+              <su-tab label="1A">1A</su-tab>
+              <su-tab label="1B" active="true">1B</su-tab>
+              <su-tab label="1C">1C</su-tab>
+            </su-tabset>
+          </su-tab>
+          <su-tab label="Second">
+            <su-tabset class="top tabular">
+              <su-tab label="2A">2A</su-tab>
+              <su-tab label="2B">2B</su-tab>
+              <su-tab label="2C">2C</su-tab>
+            </su-tabset>
+          </su-tab>
+          <su-tab label="Third">
+            <su-tabset class="top tabular">
+              <su-tab label="3A">3A</su-tab>
+              <su-tab label="3B">3B</su-tab>
+              <su-tab label="3C">3C</su-tab>
+            </su-tabset>
+          </su-tab>
+        </su-tabset>
+      </code></pre>
+    </div>
+  </section>
+</tab-multiple>

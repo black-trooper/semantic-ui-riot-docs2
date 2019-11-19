@@ -1,0 +1,16 @@
+https://semantic-ui-riot.web.app/
+https://semantic-ui-riot.web.app/demo-accordion
+https://semantic-ui-riot.web.app/demo-alert
+https://semantic-ui-riot.web.app/demo-checkbox
+https://semantic-ui-riot.web.app/demo-confirm
+https://semantic-ui-riot.web.app/demo-datepicker
+https://semantic-ui-riot.web.app/demo-dropdown
+https://semantic-ui-riot.web.app/demo-modal
+https://semantic-ui-riot.web.app/demo-pagination
+https://semantic-ui-riot.web.app/demo-popup
+https://semantic-ui-riot.web.app/demo-progress
+https://semantic-ui-riot.web.app/demo-radio
+https://semantic-ui-riot.web.app/demo-rating
+https://semantic-ui-riot.web.app/demo-tab
+https://semantic-ui-riot.web.app/demo-table
+https://semantic-ui-riot.web.app/demo-toast

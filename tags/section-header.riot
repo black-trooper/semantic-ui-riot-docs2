@@ -1,0 +1,13 @@
+<section-header>
+  <a class="anchor" name="{ kebab(props.title) }"></a>
+  <h3 class="ui header">{ props.title }</h3>
+  <p>
+    <slot />
+  </p>
+
+  <style>
+    p:last-child {
+      margin-bottom: 1rem;
+    }
+  </style>
+</section-header>
