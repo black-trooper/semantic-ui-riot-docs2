@@ -6,14 +6,14 @@
       <i class="icon code" onclick="{ toggleExample }"></i>
     </div>
     <div class="ui segment bottom attached">
-      <su-modal modal="{ modal }" class="basic">
+      <su-modal modal="{ modal }" class="basic" show="{ state.show }" onhide="{ onHide }">
         Your inbox is getting full, would you like us to enable automatic archiving of old messages?
       </su-modal>
       <button class="ui button" onclick="{ showModal }">Show modal</button>
     </div>
     <div class="ui segment bottom attached inverted transition hidden">
       <pre class="language-markup"><code>
-        <su-modal modal="{ modal }" class="basic">
+        <su-modal modal="{ modal }" class="basic" show="{ state.show }" onhide="{ onHide }">
           Your inbox is getting full, would you like us to enable automatic archiving of old messages?
         </su-modal>
         <button class="ui button" onclick="{ showModal }">Show modal</button>
@@ -33,9 +33,15 @@
                 icon: 'checkmark'
               }]
             },
+            state: {
+              show: false
+            },
 
             showModal() {
-              this.obs.trigger(`${this.$('su-modal').id}-show`)
+              this.update({ show: true })
+            },
+            onHide() {
+              this.update({ show: false })
             }
           }
         </script>
@@ -58,9 +64,15 @@
           icon: 'checkmark'
         }]
       },
+      state: {
+        show: false
+      },
 
       showModal() {
-        this.obs.trigger(`${this.$('su-modal').id}-show`)
+        this.update({ show: true })
+      },
+      onHide() {
+        this.update({ show: false })
       }
     }
   </script>

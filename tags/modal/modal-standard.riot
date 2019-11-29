@@ -6,7 +6,7 @@
       <i class="icon code" onclick="{ toggleExample }"></i>
     </div>
     <div class="ui segment bottom attached">
-      <su-modal modal="{ modal }" class="large" ref="modal">
+      <su-modal modal="{ modal }" class="large" show="{ state.show }" onhide="{ onHide }">
         <div class="ui medium image">
           <img src="/images/avatar2/large/rachel.png" />
         </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="ui segment bottom attached inverted transition hidden">
       <pre class="language-markup"><code>
-        <su-modal modal="{ modal }" class="large" ref="modal">
+        <su-modal modal="{ modal }" class="large" show="{ state.show }" onhide="{ onHide }">
           <div class="ui medium image">
             <img src="/images/avatar2/large/rachel.png" />
           </div>
@@ -38,18 +38,24 @@
         <script>
           export default {
             modal: {
-            header: 'Select a Photo',
-            buttons: [{
-              text: 'Ok',
-              type: 'primary',
-              icon: 'checkmark'
-            }, {
-              text: 'Cancel'
+              header: 'Select a Photo',
+              buttons: [{
+                text: 'Ok',
+                type: 'primary',
+                icon: 'checkmark'
+              }, {
+                text: 'Cancel'
               }]
+            },
+            state: {
+              show: false
             },
 
             showModal() {
-              this.obs.trigger(`${this.$('su-modal').id}-show`)
+              this.update({ show: true })
+            },
+            onHide() {
+              this.update({ show: false })
             }
           }
         </script>
@@ -60,18 +66,24 @@
   <script>
     export default {
       modal: {
-      header: 'Select a Photo',
-      buttons: [{
-        text: 'Ok',
-        type: 'primary',
-        icon: 'checkmark'
-      }, {
-        text: 'Cancel'
+        header: 'Select a Photo',
+        buttons: [{
+          text: 'Ok',
+          type: 'primary',
+          icon: 'checkmark'
+        }, {
+          text: 'Cancel'
         }]
+      },
+      state: {
+        show: false
       },
 
       showModal() {
-        this.obs.trigger(`${this.$('su-modal').id}-show`)
+        this.update({ show: true })
+      },
+      onHide() {
+        this.update({ show: false })
       }
     }
   </script>

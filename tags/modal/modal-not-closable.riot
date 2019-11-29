@@ -6,14 +6,14 @@
       <i class="icon code" onclick="{ toggleExample }"></i>
     </div>
     <div class="ui segment bottom attached">
-      <su-modal modal="{ modal }">
+      <su-modal modal="{ modal }" show="{ state.show }" onhide="{ onHide }">
         And not closable button
       </su-modal>
       <button class="ui button" onclick="{ showModal }">Show modal</button>
     </div>
     <div class="ui segment bottom attached inverted transition hidden">
       <pre class="language-markup"><code>
-        <su-modal modal="{ modal }">
+        <su-modal modal="{ modal }" show="{ state.show }" onhide="{ onHide }">
           And not closable button
         </su-modal>
         <button class="ui button" onclick="{ showModal }">Show modal</button>
@@ -34,9 +34,15 @@
                 disabled: true
               }]
             },
+            state: {
+              show: false
+            },
 
             showModal() {
-              this.obs.trigger(`${this.$('su-modal').id}-show`)
+              this.update({ show: true })
+            },
+            onHide() {
+              this.update({ show: false })
             }
           }
         </script>
@@ -60,9 +66,15 @@
           disabled: true
         }]
       },
+      state: {
+        show: false
+      },
 
       showModal() {
-        this.obs.trigger(`${this.$('su-modal').id}-show`)
+        this.update({ show: true })
+      },
+      onHide() {
+        this.update({ show: false })
       }
     }
   </script>

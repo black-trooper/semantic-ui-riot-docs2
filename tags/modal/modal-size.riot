@@ -6,16 +6,16 @@
       <i class="icon code" onclick="{ toggleExample }"></i>
     </div>
     <div class="ui segment bottom attached">
-      <su-modal class="mini" name="modal_mini">
+      <su-modal class="mini" show="{ state.modal_mini }" onhide="{ () => onHide('modal_mini') }">
         Mini size modal
       </su-modal>
-      <su-modal class="tiny" name="modal_tiny">
+      <su-modal class="tiny" show="{ state.modal_tiny }" onhide="{ () => onHide('modal_tiny') }">
         Tiny size modal
       </su-modal>
-      <su-modal class="small" name="modal_small">
+      <su-modal class="small" show="{ state.modal_small }" onhide="{ () => onHide('modal_small') }">
         Small size modal
       </su-modal>
-      <su-modal class="large" name="modal_large">
+      <su-modal class="large" show="{ state.modal_large }" onhide="{ () => onHide('modal_large') }">
         Large size modal
       </su-modal>
       <button class="ui button" onclick="{ () => showModal('modal_mini') }">Show mini size modal</button>
@@ -25,16 +25,16 @@
     </div>
     <div class="ui segment bottom attached inverted transition hidden">
       <pre class="language-markup"><code>
-        <su-modal class="mini" name="modal_mini">
+        <su-modal class="mini" show="{ state.modal_mini }" onhide="{ () => onHide('modal_mini') }">
           Mini size modal
         </su-modal>
-        <su-modal class="tiny" name="modal_tiny">
+        <su-modal class="tiny" show="{ state.modal_tiny }" onhide="{ () => onHide('modal_tiny') }">
           Tiny size modal
         </su-modal>
-        <su-modal class="small" name="modal_small">
+        <su-modal class="small" show="{ state.modal_small }" onhide="{ () => onHide('modal_small') }">
           Small size modal
         </su-modal>
-        <su-modal class="large" name="modal_large">
+        <su-modal class="large" show="{ state.modal_large }" onhide="{ () => onHide('modal_large') }">
           Large size modal
         </su-modal>
         
@@ -45,9 +45,20 @@
 
         <script>
           export default {
+            state: {
+              modal_mini: false,
+              modal_tiny: false,
+              modal_small: false,
+              modal_large: false,
+            },
+
             showModal(target) {
-              const selector = `[name="${target}"]`
-              this.obs.trigger(`${this.$(selector).id}-show`)
+              this.state[target] = true
+              this.update()
+            },
+            onHide(target) {
+              this.state[target] = false
+              this.update()
             }
           }
         </script>
@@ -57,9 +68,20 @@
 
   <script>
     export default {
+      state: {
+        modal_mini: false,
+        modal_tiny: false,
+        modal_small: false,
+        modal_large: false,
+      },
+
       showModal(target) {
-        const selector = `[name="${target}"]`
-        this.obs.trigger(`${this.$(selector).id}-show`)
+        this.state[target] = true
+        this.update()
+      },
+      onHide(target) {
+        this.state[target] = false
+        this.update()
       }
     }
   </script>

@@ -6,14 +6,14 @@
       <i class="icon code" onclick="{ toggleExample }"></i>
     </div>
     <div class="ui segment bottom attached">
-      <su-modal class="fullscreen">
+      <su-modal modal="{ modal }" class="fullscreen" show="{ state.show }" onhide="{ onHide }">
         Full screen modal
       </su-modal>
       <button class="ui button" onclick="{ showModal }">Show full screen modal</button>
     </div>
     <div class="ui segment bottom attached inverted transition hidden">
       <pre class="language-markup"><code>
-          <su-modal class="fullscreen">
+          <su-modal modal="{ modal }" class="fullscreen" show="{ state.show }" onhide="{ onHide }">
             Full screen modal
           </su-modal>
           <button class="ui button" onclick="{ showModal }">Show full screen modal</button>
@@ -30,9 +30,15 @@
                   text: 'Cancel'
                 }]
               },
+              state: {
+                show: false
+              },
 
               showModal() {
-                this.obs.trigger(`${this.$('su-modal').id}-show`)
+                this.update({ show: true })
+              },
+              onHide() {
+                this.update({ show: false })
               }
             }
           </script>
@@ -52,9 +58,15 @@
           text: 'Cancel'
         }]
       },
+      state: {
+        show: false
+      },
 
       showModal() {
-        this.obs.trigger(`${this.$('su-modal').id}-show`)
+        this.update({ show: true })
+      },
+      onHide() {
+        this.update({ show: false })
       }
     }
   </script>

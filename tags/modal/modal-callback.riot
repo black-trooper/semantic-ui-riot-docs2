@@ -7,7 +7,7 @@
     </div>
     <div class="ui segment bottom attached">
       <su-modal modal="{ modal }" onTextAccess="{onTextAccess}" onclick-action="{ onClickAction }"
-        onclick_close="{onConfirmClose}" onshow="{onshow}" onhide="{onhide}">
+        onclick_close="{onConfirmClose}" onshow="{onshow}" onhide="{onhide}" show="{ state.show }">
       </su-modal>
       <div class="ui message" if="{ callbackMessage.length > 0 }">
         <ul>
@@ -19,7 +19,7 @@
     <div class="ui segment bottom attached inverted transition hidden">
       <pre class="language-markup"><code>
         <su-modal modal="{ modal }" onTextAccess="{onTextAccess}" onclick-action="{ onClickAction }"
-          onclick_close="{onConfirmClose}" onshow="{onshow}" onhide="{onhide}">
+          onclick_close="{onConfirmClose}" onshow="{onshow}" onhide="{onhide}" show="{ state.show }">
         </su-modal>
         <div class="ui message" if="{ callbackMessage.length > 0 }">
           <ul>
@@ -45,8 +45,12 @@
 
             callbackMessage: [],
 
+            state: {
+              show: false
+            },
+
             showModal() {
-              this.obs.trigger(`${this.$('su-modal').id}-show`)
+              this.update({ show: true })
             },
 
             // trigger by buttons[n].text
@@ -63,8 +67,7 @@
             onConfirmClose() {
               if (confirm('Are you ok ?')) {
                 this.callbackMessage.push('Confirm close button is clicked and confirm ok.')
-                this.update()
-                this.obs.trigger(`${this.$('su-modal').id}-hide`)
+                this.update({ show: false })
               }
             },
 
@@ -74,7 +77,7 @@
             },
             onhide() {
               this.callbackMessage.push('Modal hide')
-              this.update()
+              this.update({ show: false })
             },
           }
         </script>
@@ -100,8 +103,12 @@
 
       callbackMessage: [],
 
+      state: {
+        show: false
+      },
+
       showModal() {
-        this.obs.trigger(`${this.$('su-modal').id}-show`)
+        this.update({ show: true })
       },
 
       // trigger by buttons[n].text
@@ -118,8 +125,7 @@
       onConfirmClose() {
         if (confirm('Are you ok ?')) {
           this.callbackMessage.push('Confirm close button is clicked and confirm ok.')
-          this.update()
-          this.obs.trigger(`${this.$('su-modal').id}-hide`)
+          this.update({ show: false })
         }
       },
 
@@ -129,7 +135,7 @@
       },
       onhide() {
         this.callbackMessage.push('Modal hide')
-        this.update()
+        this.update({ show: false })
       },
     }
   </script>
