@@ -423,31 +423,32 @@
         </code></pre>
       </div>
     </section>
+  </div>
 
-    <script>
-      export default {
-        onMount() {
-          this.navigation = this.extractNavigation(this.root)
+  <script>
+    export default {
+      onMount() {
+        this.navigation = this.extractNavigation(this.root)
+        this.update()
+      },
+
+      decrement(name) {
+        const target = this.$(`[name="${name}"]`)
+        const value = parseInt(target.getAttribute('value'))
+        if (value >= 0) {
+          target.setAttribute('value', value - 10)
           this.update()
-        },
+        }
+      },
 
-        decrement(name) {
-          const target = this.$(`[name="${name}"]`)
-          const value = parseInt(target.getAttribute('value'))
-          if (value >= 0) {
-            target.setAttribute('value', value - 10)
-            this.update()
-          }
-        },
-
-        increment(name) {
-          const target = this.$(`[name="${name}"]`)
-          const value = parseInt(target.getAttribute('value'))
-          if (value <= 100) {
-            target.setAttribute('value', value + 10)
-            this.update()
-          }
+      increment(name) {
+        const target = this.$(`[name="${name}"]`)
+        const value = parseInt(target.getAttribute('value'))
+        if (value <= 100) {
+          target.setAttribute('value', value + 10)
+          this.update()
         }
       }
-    </script>
+    }
+  </script>
 </demo-progress>

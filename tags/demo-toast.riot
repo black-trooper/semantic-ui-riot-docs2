@@ -422,32 +422,33 @@
         </code></pre>
       </div>
     </section>
+  </div>
 
-    <!-- ====================================================== -->
-    <!--                                               Position -->
-    <!--                                               ======== -->
-    <section-header title="Position">A toast can change the position.</section-header>
-    <section>
-      <div class="ui segment inverted">
-        <pre class="language-markup"><code>
+  <!-- ====================================================== -->
+  <!--                                               Position -->
+  <!--                                               ======== -->
+  <section-header title="Position">A toast can change the position.</section-header>
+  <section>
+    <div class="ui segment inverted">
+      <pre class="language-markup"><code>
           <su-toast position="top left"></su-toast>
           <su-toast position="top right"></su-toast>
           <su-toast position="bottom left"></su-toast>
           <su-toast position="bottom right"></su-toast>
         </code></pre>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <script>
-      export default {
-        onMounted() {
-          this.navigation = this.extractNavigation(this.root)
-          this.update()
-        },
+  <script>
+    export default {
+      onMounted() {
+        this.navigation = this.extractNavigation(this.root)
+        this.update()
+      },
 
-        showToast(option) {
-          this.suToast(option)
-        }
+      showToast(option) {
+        this.suToast(option)
       }
-    </script>
+    }
+  </script>
 </demo-toast>
