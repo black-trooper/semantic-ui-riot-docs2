@@ -166,6 +166,12 @@
                     const url = regex.test(path) ? regex.exec(path)[1].split('#')[0] : 'root'
                     this.update({ page: url })
                     this.obs.trigger('routing', url)
+                    const pageTitle = url.charAt(0).toUpperCase() + url.slice(1)
+                    if(pageTitle){
+                        document.title = `${pageTitle} | Semantic UI Riot`
+                    } else {
+                        document.title = 'Semantic UI Riot'
+                    }
                 })
             }
         }
