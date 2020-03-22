@@ -51,7 +51,7 @@
     "prismjs": "^1.15.0",
     "rimraf": "^2.6.2",
     "riot": "^4.6.6",
-    "semantic-ui-riot": "2.1.1",
+    "semantic-ui-riot": "2.1.2",
     "style-loader": "^0.23.0",
     "validatorjs-riot": "^0.1.3",
     "vinyl-source-stream": "^2.0.0",

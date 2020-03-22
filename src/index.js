@@ -1,6 +1,7 @@
 import prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
 import './common.css'
+import * as riot from 'riot'
 import 'semantic-ui-riot'
 
 import app from '../tags/app.riot'
