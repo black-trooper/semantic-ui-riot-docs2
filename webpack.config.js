@@ -32,10 +32,6 @@ const config = {
   output: {
     path: __dirname + '/'
   },
-  externals: [
-    { riot: 'riot' },
-    // webpackDateFnsExternals()
-  ],
   module: {
     rules: [
       {
@@ -83,9 +79,6 @@ const config = {
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({ options: {} }),
-    new webpack.ProvidePlugin({
-      riot: 'riot'
-    }),
     new CopyWebpackPlugin(['images/**/*.png', 'images/**/manifest.json', 'images/**/*.ico', 'i18n/**/*'])
   ]
 };
