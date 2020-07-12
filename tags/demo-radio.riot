@@ -207,62 +207,6 @@
     <!--                                        Access elements -->
     <!--                                        =============== -->
     <section-header title="Access elements"></section-header>
-    <p>Access to radio with setAttribute</p>
-    <section>
-      <div class="ui segment secondary top attached example">
-        Example
-        <i class="icon code" onclick="{ toggleExample }"></i>
-      </div>
-      <div class="ui segment bottom attached">
-        <su-radio-group name="radio-group1" onchange="{ onChange }">
-          <su-radio value="1">Radio choice1</su-radio>
-          <su-radio value="2">Radio choice2</su-radio>
-        </su-radio-group>
-
-        <div class="ui message">
-          <div class="header">
-            Checked from refs
-          </div>
-          <p>Radio choice{ $("[name='radio-group1']").getAttribute('value')}</p>
-        </div>
-
-        <button type="button" onclick="{ () => setAttributeValue(1) }" class="ui button">Choice1</button>
-        <button type="button" onclick="{ () => setAttributeValue(2) }" class="ui button">Choice2</button>
-      </div>
-
-      <div class="ui segment bottom attached inverted transition hidden">
-        <pre class="language-markup"><code>
-          <su-radio-group name="radio-group1" onchange="{ onChange }">
-            <su-radio value="1">Radio choice1</su-radio>
-            <su-radio value="2">Radio choice2</su-radio>
-          </su-radio-group>
-          
-          <div class="ui message">
-            <div class="header">
-              Checked from refs
-            </div>
-            <p>Radio choice{ $([name="radio-group1"]).getAttribute('value')}</p>
-          </div>
-          
-          <button type="button" onclick="{ () => setAttributeValue(1) }" class="ui button">Choice1</button>
-          <button type="button" onclick="{ () => setAttributeValue(2) }" class="ui button">Choice2</button>
-
-          <script>
-            export default {
-              onChange() {
-                this.update()
-              },
-
-              setAttributeValue(value) {
-                this.$("[name='radio-group1']").setAttribute('value', value)
-                this.update()
-              }
-            }
-          </script>
-        </code></pre>
-      </div>
-    </section>
-
     <p>Access to radio with value attribute</p>
     <section>
       <div class="ui segment secondary top attached example">
@@ -333,11 +277,6 @@
       },
 
       onChange() {
-        this.update()
-      },
-
-      setAttributeValue(value) {
-        this.$("[name='radio-group1']").setAttribute('value', value)
         this.update()
       },
 

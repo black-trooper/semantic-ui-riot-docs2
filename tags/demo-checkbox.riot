@@ -194,103 +194,6 @@
     <!--                                        =============== -->
     <section-header title="Access elements"></section-header>
 
-    <p>Access to checkbox with setAttribute</p>
-    <section>
-      <div class="ui segment secondary top attached example">
-        Example
-        <i class="icon code" onclick="{ toggleExample }"></i>
-      </div>
-      <div class="ui segment bottom attached">
-        <su-checkbox name="checkbox1" onchange="{ onChange }">
-          Make my profile visible
-        </su-checkbox>
-
-        <div class="ui message">
-          <p>{ $("[name='checkbox1']").checked ? 'on' : 'off' }</p>
-        </div>
-
-        <button type="button" onclick="{ () => setAttributeValue(true) }" class="ui button">Check on</button>
-        <button type="button" onclick="{ () => setAttributeValue(false) }" class="ui button">Check off</button>
-      </div>
-
-      <div class="ui segment bottom attached inverted transition hidden">
-        <pre class="language-markup"><code>
-          <su-checkbox name="checkbox1" onchange="{ onChange }">
-            Make my profile visible
-          </su-checkbox>
-          
-          <div class="ui message">
-            <p>{ $("[name='checkbox1']").checked ? 'on' : 'off' }</p>
-          </div>
-          
-          <button type="button" onclick="{ () => setAttributeValue(true) }" class="ui button">Check on</button>
-          <button type="button" onclick="{ () => setAttributeValue(false) }" class="ui button">Check off</button>
-          
-          <script>
-            export default {
-              onChange() {
-                this.update()
-              },
-              setAttributeValue = value => {
-                this.$("[name='checkbox1']").checked = value
-              }
-            }
-          </script>
-        </code></pre>
-      </div>
-    </section>
-
-    <section>
-      <div class="ui segment secondary top attached example">
-        Example
-        <i class="icon code" onclick="{ toggleExample }"></i>
-      </div>
-      <div class="ui segment bottom attached">
-        <su-checkbox-group name="checkbox-group" onchange="{ onChange }">
-          <su-checkbox value="1">Checkbox choice1</su-checkbox>
-          <su-checkbox value="2">Checkbox choice2</su-checkbox>
-        </su-checkbox-group>
-
-        <div class="ui message">
-          <p>Checkbox choice{ $("[name='checkbox-group']").getAttribute('value') }</p>
-        </div>
-
-        <button type="button" onclick="{ () => setCheckboxGroupAttributeValue(1) }" class="ui button">Choice1</button>
-        <button type="button" onclick="{ () => setCheckboxGroupAttributeValue([2]) }" class="ui button">Choice2</button>
-        <button type="button" onclick="{ () => setCheckboxGroupAttributeValue('1, 2') }"
-          class="ui button">Choice1,2</button>
-      </div>
-
-      <div class="ui segment bottom attached inverted transition hidden">
-        <pre class="language-markup"><code>
-          <su-checkbox-group name="checkbox-group" onchange="{ onChange }">
-            <su-checkbox value="1">Checkbox choice1</su-checkbox>
-            <su-checkbox value="2">Checkbox choice2</su-checkbox>
-          </su-checkbox-group>
-      
-          <div class="ui message">
-            <p>Checkbox choice{ $("[name='checkbox-group']").getAttribute('value') }</p>
-          </div>
-      
-          <button type="button" onclick="{ () => setCheckboxGroupAttributeValue(1) }" class="ui button">Choice1</button>
-          <button type="button" onclick="{ () => setCheckboxGroupAttributeValue([2]) }" class="ui button">Choice2</button>
-          <button type="button" onclick="{ () => setCheckboxGroupAttributeValue('1, 2') }" class="ui button">Choice1,2</button>
-
-          <script>
-            export default {
-              onChange() {
-                this.update()
-              },
-              setCheckboxGroupAttributeValue(value) {
-                this.$("[name='checkbox-group']").setAttribute('value', value)
-                this.update()
-              }
-            }
-          </script>
-        </code></pre>
-      </div>
-    </section>
-
     <!-- ====================================================== -->
     <!--                                      Checked attribute -->
     <!--                                      ================= -->
@@ -412,16 +315,6 @@
 
       onChange2(target) {
         this.setCheckboxValue(target.target.checked)
-      },
-
-      setAttributeValue(value) {
-        this.$("[name='checkbox1']").setAttribute('checked', value)
-        this.update()
-      },
-
-      setCheckboxGroupAttributeValue(value) {
-        this.$("[name='checkbox-group']").setAttribute('value', value)
-        this.update()
       },
 
       setCheckboxValue(value) {
